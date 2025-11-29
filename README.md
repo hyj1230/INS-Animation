@@ -7,7 +7,6 @@ class Button:
 ```
 
 2. 添加动画内容
-
 ```
 class Button:
     def __init__(self):
@@ -19,7 +18,6 @@ class Button:
 ```
 
 3. 动画开始后在主循环里进行更新
-
 ```
 button.hover_transition.start()  # 动画开始播放
 while True:
@@ -56,3 +54,31 @@ while True:
 > 3. 上文 `easing_function` 的格式
 >
 > **`transition_delay`: 动画开始的延迟**  
+> 默认值: '0s'
+> 格式：同 `transition_duration`
+> 
+> **`lerp_function`: 插值用的函数（非特殊情况无需变动）**  
+> 默认值: `lerp`（数字类型的插值）
+>
+> **返回值：`Transition` 类**
+
+**`Transition` 类：**  
+> 用于单个动画的类
+> 
+> `play`: True 或 False，代表动画是否在播放中  
+> `update()`: 动画更新，否则无法播放  
+> `start()`: 开始播放动画  
+> `stop()`: 强制停止动画播放
+
+**`TransitionGroup` 类：**  
+> 动画组，用于同时执行多个动画
+> 
+> `play`: True 或 False，代表动画是否在播放中  
+> `add_transition(_transition)`: 添加动画  
+> > `_transition` 格式: 
+> > 1. 单个 `Transition` 类
+> > 2. 包含 `Transition` 类的元组和列表
+> 
+> `update()`: 动画更新，否则无法播放  
+> `start()`: 开始播放动画  
+> `stop()`: 强制停止动画播放
